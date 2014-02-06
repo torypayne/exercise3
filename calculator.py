@@ -30,19 +30,15 @@ while True:
 
     #Dealing with extra values for two value expressions
     if tokens[0] in doubleoperators:
-        try:
-           tokens[3] == True
-        except IndexError: 
-           print "I can only handle two values with that expression"
-           continue
+        if len(tokens) >= 4:
+            print "I can only handle two values with that expression, start again"
+            continue
 
     #Dealing with extra values for one value expressions
-    elif tokens[0] == singleoperators:
-        try:
-            tokens[2] == True
-        except IndexError:
-          print "I can only handle one value with this expression"
-        
+    if tokens[0] in singleoperators: 
+        if len(tokens) >= 3:
+          print "I can only handle one value with this expression, start again"
+          continue
 
     if tokens[0] == "q":
         break
